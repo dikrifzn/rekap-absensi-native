@@ -43,7 +43,7 @@
             </div>
         </div>
     </nav>
-    <div class="container p-5 text-center">
+    <div class="container-fluid p-3 text-center">
         <div class="row">
             <div class="col">
                 <div class="dropdown d-grid"><!--Kelas-->
@@ -58,7 +58,10 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Gender</th>
-                                    <th scope="col">Kehadiran</th>
+                                    <th class="col-1 text-center" scope="col">Hadir</th>
+                                    <th class="col-1 text-center" scope="col">Sakit</th>
+                                    <th class="col-1 text-center" scope="col">Izin</th>
+                                    <th class="col-1 text-center" scope="col">Alpha</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -66,23 +69,67 @@
                                     <th scope="row">1</th>
                                     <td>Mark</td>
                                     <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="1">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="1">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="1">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="1">
+                                    </td>
                                   </tr>
                                   <tr>
                                     <th scope="row">2</th>
                                     <td>Jacob</td>
                                     <td>Thornton</td>
-                                    <td>@fat</td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="2">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="2">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="2">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="2">
+                                    </td>
                                   </tr>
                                   <tr>
                                     <th scope="row">3</th>
                                     <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="3">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="3">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="3">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="3">
+                                    </td>
                                   </tr>
                                   <tr>
                                     <th scope="row">4</th>
                                     <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="4">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="4">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="4">
+                                    </td>
+                                    <td class="col-1 text-center">
+                                        <input class="form-check-input" type="radio" name="4">
+                                    </td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -207,7 +254,15 @@
                                     <th scope="row">1</th>
                                     <td>Mark</td>
                                     <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td>
+                                        <input class="form-check-input" type="radio">
+                                    </td>
+                                    <td>
+                                        <input class="form-check-input" type="radio">
+                                    </td>
+                                    <td>
+                                        <input class="form-check-input" type="radio">
+                                    </td>
                                   </tr>
                                   <tr>
                                     <th scope="row">2</th>
