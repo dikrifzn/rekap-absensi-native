@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi | Al-Awaliyah</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav> <!--Navbar-->
+        <div class="topnav bg-success bg-opacity-75"> 
+            <div class="row w-100">
+                <div class="col col-2">
+                    <div class="burger">
+                        <a class="btn btn-link" data-bs-toggle="offcanvas" href="#offcanvas" role="button">
+                            <i class="bi bi-list text-white fs-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <h1 class="text-light m-2">Al-Awaliyah</h1>
+                </div>
+            </div>
+        </div>         
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">Menu</h5>
+              <button type="button" class="btn-close m-1" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <a href="index.html">
+                    <div class="navitem p-2">
+                        Absensi
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="navitem p-2">
+                        Rekap Kehadiran
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container p-3">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Pilih Kelas</label>
+        <select class="form-select" id="inputGroupSelect01">
+          <option value="1">Kelas 1</option>
+          <option value="2">Kelas 2</option>
+          <option value="3">Kelas 3</option>
+          <option value="4">Kelas 4</option>
+        </select>
+      </div>
+      <div class="col-4 ms-auto">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Cari Nama" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+      <table class="table table-striped m-0 align-items-center">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Kehadiran</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
