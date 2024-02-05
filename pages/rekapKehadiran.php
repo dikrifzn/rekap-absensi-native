@@ -58,19 +58,19 @@
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Pilih Kelas</label>
         <select class="form-select" id="inputGroupSelect01" name="kelas">
-          <option value="1A" selected>Kelas 1A</option>
+            <option value="all" selected>Semua</option>
+          <option value="1A">Kelas 1A</option>
           <option value="1B">Kelas 1B</option>
           <option value="2A">Kelas 2A</option>
           <option value="2B">Kelas 2B</option>
           <option value="3A">Kelas 3A</option>
           <option value="3B">Kelas 3B</option>
           <option value="4">Kelas 4</option>
-          <option value="all">Semua</option>
         </select>
       </div>
       <div class="row">
         <div class="col">
-          <a href="../action/exportExcel.php?table=kelas1a">
+          <a href="../action/sheetAll.php">
               <button class="btn btn-primary">Download Rekap Kehadiran</button>
           </a>
         </div>
@@ -89,7 +89,7 @@
             <th class="col-1" scope="col">#</th>
             <th class="col-2" scope="col">NIS</th>
             <th class="col-4" scope="col">Nama</th>
-            <th class="col-1" scope="col">JK</th>
+            <th class="col-4" scope="col">Kelas</th>
             <th class="col-1" scope="col">Hadir</th>
             <th class="col-1" scope="col">Sakit</th>
             <th class="col-1" scope="col">Izin</th>
@@ -101,17 +101,24 @@
             <?php
             include "../action/koneksi.php";
 
-            // Menampilkan seluruh data jika tidak ada pencarian
             $no = 1;
-            $data = mysqli_query($koneksi, "SELECT * FROM kelas1a");
+            $data = mysqli_query($koneksi, "SELECT siswa.nis, siswa.nama, kelas.nama_kelas,
+            SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END) as hadir,
+            SUM(CASE WHEN presensi.status_presensi = 'S' THEN 1 ELSE 0 END) as sakit,
+            SUM(CASE WHEN presensi.status_presensi = 'I' THEN 1 ELSE 0 END) as izin,
+            SUM(CASE WHEN presensi.status_presensi = 'A' THEN 1 ELSE 0 END) as alpha
+            FROM siswa
+            LEFT JOIN presensi ON siswa.nis = presensi.nis
+            LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
+            GROUP BY siswa.nis");
+            
             while($d = mysqli_fetch_array($data)){
                 echo "<tr>";
                 echo "<th class='text-center' scope='row'>" . $no++ . "</th>";
                 echo "<td class='text-center'>" . $d["nis"] . "</td>";
                 echo "<td class='text-start'>" . $d["nama"] . "</td>";
-                echo "<td class='text-center'>" . $d["jenis_kelamin"] . "</td>";
+                echo "<td class='text-center'>" . $d["nama_kelas"] . "</td>";
                 
-                // Menambahkan warna merah jika nilai lebih dari 3
                 $sakitColor = ($d['sakit'] > 3) ? 'text-danger fw-bold' : '';
                 $izinColor = ($d['izin'] > 3) ? 'text-danger fw-bold' : '';
                 $alphaColor = ($d['alpha'] > 3) ? 'text-danger fw-bold' : '';
@@ -140,10 +147,13 @@
       // Event listener for select change
       $('#inputGroupSelect01').change(function() {
         var selectedKelas = $(this).val();
-
+        
         switch(selectedKelas) {
+            case 'all':
+              window.location.href = 'rekapKehadiran.php';
+              break;
           case '1A':
-            window.location.href = '#';
+            window.location.href = 'rekap1A.php';
             break;
           case '1B':
             window.location.href = 'rekap1B.php';
@@ -162,9 +172,6 @@
             break;
           case '4':
             window.location.href = 'rekap4.php';
-            break;
-          case 'all':
-            window.location.href = 'rekapSemua.php';
             break;
         }
       });

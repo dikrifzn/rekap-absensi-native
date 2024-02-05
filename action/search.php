@@ -7,7 +7,16 @@ if(isset($_POST['search'])) {
     $tabel = $_POST['tabel'];
 
     // Query pencarian data berdasarkan kolom 'nama'
-    $query = "SELECT * FROM $tabel WHERE nis LIKE '$keyword%' OR nama LIKE '$keyword%'";
+    $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas,
+    SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END) as hadir,
+    SUM(CASE WHEN presensi.status_presensi = 'S' THEN 1 ELSE 0 END) as sakit,
+    SUM(CASE WHEN presensi.status_presensi = 'I' THEN 1 ELSE 0 END) as izin,
+    SUM(CASE WHEN presensi.status_presensi = 'A' THEN 1 ELSE 0 END) as alpha
+    FROM siswa
+    LEFT JOIN presensi ON siswa.nis = presensi.nis
+    LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
+    WHERE siswa.nis LIKE '$keyword%' OR siswa.nama LIKE '$keyword%'
+    GROUP BY siswa.nis";
     $result = mysqli_query($koneksi, $query);
     $no = 1;
     if(mysqli_num_rows($result) > 0){

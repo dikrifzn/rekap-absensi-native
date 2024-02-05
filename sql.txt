@@ -1,1 +1,30 @@
-CREATE TABLE kelas4(nis varchar(10), nama varchar(25), jenis_kelamin enum('L', 'P'), tgl1 varchar(1), tgl2 varchar(1), tgl3 varchar(1), tgl4 varchar(1), tgl5 varchar(1), tgl6 varchar(1), tgl7 varchar(1), tgl8 varchar(1), tgl9 varchar(1), tgl10 varchar(1), tgl11 varchar(1), tgl12 varchar(1), tgl13 varchar(1), tgl14 varchar(1), tgl15 varchar(1), tgl16 varchar(1), tgl17 varchar(1), tgl18 varchar(1), tgl19 varchar(1), tgl20 varchar(1), tgl21 varchar(1), tgl22 varchar(1), tgl23 varchar(1), tgl24 varchar(1), tgl25 varchar(1), tgl26 varchar(1), tgl27 varchar(1), tgl28 varchar(1), tgl29 varchar(1), tgl30 varchar(1), tgl31 varchar(1), hadir varchar(1), sakit varchar(1), izin varchar(1), alpha varchar(1));
+-- Tabel Kelas
+CREATE TABLE kelas (
+    id_kelas INT PRIMARY KEY,
+    nama_kelas VARCHAR(50)
+);
+
+-- Tabel Siswa
+CREATE TABLE siswa (
+    nis VARCHAR(15) PRIMARY KEY,
+    nama VARCHAR(255),
+    id_kelas INT,
+    FOREIGN KEY (id_kelas) REFERENCES Kelas(id_kelas)
+);
+
+-- Tabel MataPelajaran
+CREATE TABLE matapelajaran (
+    id_matapelajaran INT PRIMARY KEY,
+    matapelajaran VARCHAR(100)
+);
+
+-- Tabel Presensi
+CREATE TABLE presensi (
+    id_presensi INT PRIMARY KEY,
+    tanggal DATE,
+    nis VARCHAR(15),
+    id_matapelajaran INT,
+    status_presensi VARCHAR(20),
+    FOREIGN KEY (id_siswa) REFERENCES siswa(id_siswa),
+    FOREIGN KEY (id_matapelajaran) REFERENCES matapelajaran(id_matapelajaran)
+);

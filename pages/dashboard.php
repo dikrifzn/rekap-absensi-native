@@ -52,6 +52,11 @@
                         Rekap Kehadiran
                     </div>
                 </a>
+                <a href="manajemenSiswa.php">
+                    <div class="navitem p-2">
+                        Manajemen Siswa
+                    </div>
+                </a>
             </div>
         </div>
     </nav>
@@ -74,7 +79,7 @@
 		<?php		
 			}
 		?>
-        <div class="row">  <!--KELAS 1A-->
+        <div class="row mb-3">  <!--KELAS 1A-->
             <div class="col">
                 <div class="dropdown d-grid"><!--Kelas-->
                     <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
@@ -82,23 +87,26 @@
                     </button>
                     <ul class="dropdown-menu w-100 p-0">
                         <li>
-                            <form method="POST" action="../action/simpanData.php">
-                            <label class="ms-3" for="kolom_tanggal">Pilih Kolom Tanggal : </label>
-                            <select class="btn btn-primary dropdown-toggle" name="kolom_tanggal" id="kolom_tanggal">
-                                <?php
-                                // Menampilkan opsi dropdown untuk setiap kolom tanggal dari tgl1 hingga tgl31
-                                for ($i = 1; $i <= 31; $i++) {
-                                    echo "<option class='dropdown-item' value='tgl$i'>Tanggal $i</option>";
-                                }
-                                ?>
-                            </select>
+                            <form method="POST" action="../action/simpan.php">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="tanggal">Tanggal : </label>
+                                    <input id="tanggal" class="form-control" type="date" name="tanggal">
+                                </div>
+                                <div class="col">
+                                    <label for="matapelajaran">Pelajaran : </label>
+                                    <select id="matapelajaran" class="form-control" name="matapelajaran">
+                                        <option value="1">Fiqih</option>
+                                        <option value="2">Akhlaq</option>
+                                    </select>
+                                </div>
+                            </div>
                             <table class="table table-striped m-0 align-items-center">
                                 <thead>
                                   <tr>
                                     <th class="text-center" scope="col">#</th>
                                     <th scope="col">NIS</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">JK</th>
                                     <th class="col-1 text-center" scope="col">Hadir</th>
                                     <th class="col-1 text-center" scope="col">Sakit</th>
                                     <th class="col-1 text-center" scope="col">Izin</th>
@@ -109,21 +117,15 @@
                                 <?php 
                                     include '../action/koneksi.php';
                                     $no = 1;
-                                    $data = mysqli_query($koneksi, "SELECT * FROM kelas1a");
+                                    $data = mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_kelas = '1'");
                                     while($d = mysqli_fetch_array($data)){
-                                        // Mendapatkan nilai dari database
-                                        $hadir = $d["hadir"];
-                                        $sakit = $d["sakit"];
-                                        $izin = $d["izin"];
-                                        $alpha = $d["alpha"];
                                 ?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $no++; ?></th>
                                     <td><?php echo $d["nis"]; ?></td>
                                     <td><?php echo $d["nama"]; ?></td>
-                                    <td><?php echo $d["jenis_kelamin"]; ?></td>
                                     <td class="col-1 text-center">
-                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]">
+                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]" checked>
                                     </td>
                                     <td class="col-1 text-center">
                                         <input class="form-check-input" type="radio" value="S" name="option[<?php echo $d['nis']; ?>]">
@@ -135,7 +137,6 @@
                                         <input class="form-check-input" type="radio" value="A" name="option[<?php echo $d['nis']; ?>]">
                                     </td>
                                     <input type="hidden" name="nis[]" value="<?php echo $d['nis']; ?>">
-                                    <input type="hidden" name="namatabel" value="kelas1a">
                                 </tr>
                                 <?php } ?>
                                 </tbody>
@@ -149,7 +150,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">  <!--KELAS 1B-->
+        <div class="row mb-3">  <!--KELAS 1B-->
             <div class="col">
                 <div class="dropdown d-grid"><!--Kelas-->
                     <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
@@ -157,23 +158,26 @@
                     </button>
                     <ul class="dropdown-menu w-100 p-0">
                         <li>
-                            <form method="POST" action="../action/simpanData.php">
-                            <label class="ms-3" for="kolom_tanggal">Pilih Kolom Tanggal : </label>
-                            <select class="btn btn-primary dropdown-toggle" name="kolom_tanggal" id="kolom_tanggal">
-                                <?php
-                                // Menampilkan opsi dropdown untuk setiap kolom tanggal dari tgl1 hingga tgl31
-                                for ($i = 1; $i <= 31; $i++) {
-                                    echo "<option class='dropdown-item' value='tgl$i'>Tanggal $i</option>";
-                                }
-                                ?>
-                            </select>
+                            <form method="POST" action="../action/simpan.php">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="tanggal">Tanggal : </label>
+                                    <input id="tanggal" class="form-control" type="date" name="tanggal">
+                                </div>
+                                <div class="col">
+                                    <label for="matapelajaran">Pelajaran : </label>
+                                    <select id="matapelajaran" class="form-control" name="matapelajaran">
+                                        <option value="1">Fiqih</option>
+                                        <option value="2">Akhlaq</option>
+                                    </select>
+                                </div>
+                            </div>
                             <table class="table table-striped m-0 align-items-center">
                                 <thead>
                                   <tr>
                                     <th class="text-center" scope="col">#</th>
                                     <th scope="col">NIS</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">JK</th>
                                     <th class="col-1 text-center" scope="col">Hadir</th>
                                     <th class="col-1 text-center" scope="col">Sakit</th>
                                     <th class="col-1 text-center" scope="col">Izin</th>
@@ -184,21 +188,15 @@
                                 <?php 
                                     include '../action/koneksi.php';
                                     $no = 1;
-                                    $data = mysqli_query($koneksi, "SELECT * FROM kelas1b");
+                                    $data = mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_kelas = '2'");
                                     while($d = mysqli_fetch_array($data)){
-                                        // Mendapatkan nilai dari database
-                                        $hadir = $d["hadir"];
-                                        $sakit = $d["sakit"];
-                                        $izin = $d["izin"];
-                                        $alpha = $d["alpha"];
                                 ?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $no++; ?></th>
                                     <td><?php echo $d["nis"]; ?></td>
                                     <td><?php echo $d["nama"]; ?></td>
-                                    <td><?php echo $d["jenis_kelamin"]; ?></td>
                                     <td class="col-1 text-center">
-                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]">
+                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]" checked>
                                     </td>
                                     <td class="col-1 text-center">
                                         <input class="form-check-input" type="radio" value="S" name="option[<?php echo $d['nis']; ?>]">
@@ -210,7 +208,6 @@
                                         <input class="form-check-input" type="radio" value="A" name="option[<?php echo $d['nis']; ?>]">
                                     </td>
                                     <input type="hidden" name="nis[]" value="<?php echo $d['nis']; ?>">
-                                    <input type="hidden" name="namatabel" value="kelas1b">
                                 </tr>
                                 <?php } ?>
                                 </tbody>
@@ -224,7 +221,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3"> <!--KELAS 2A-->
+        <div class="row mb-3">  <!--KELAS 2A-->
             <div class="col">
                 <div class="dropdown d-grid"><!--Kelas-->
                     <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
@@ -232,23 +229,26 @@
                     </button>
                     <ul class="dropdown-menu w-100 p-0">
                         <li>
-                        <form method="POST" action="../action/simpanData.php">
-                            <label class="ms-3" for="kolom_tanggal">Pilih Kolom Tanggal : </label>
-                            <select class="btn btn-primary dropdown-toggle" name="kolom_tanggal" id="kolom_tanggal">
-                                <?php
-                                // Menampilkan opsi dropdown untuk setiap kolom tanggal dari tgl1 hingga tgl31
-                                for ($i = 1; $i <= 31; $i++) {
-                                    echo "<option class='dropdown-item' value='tgl$i'>Tanggal $i</option>";
-                                }
-                                ?>
-                            </select>
+                            <form method="POST" action="../action/simpan.php">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="tanggal">Tanggal : </label>
+                                    <input id="tanggal" class="form-control" type="date" name="tanggal">
+                                </div>
+                                <div class="col">
+                                    <label for="matapelajaran">Pelajaran : </label>
+                                    <select id="matapelajaran" class="form-control" name="matapelajaran">
+                                        <option value="1">Fiqih</option>
+                                        <option value="2">Akhlaq</option>
+                                    </select>
+                                </div>
+                            </div>
                             <table class="table table-striped m-0 align-items-center">
                                 <thead>
                                   <tr>
                                     <th class="text-center" scope="col">#</th>
                                     <th scope="col">NIS</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">JK</th>
                                     <th class="col-1 text-center" scope="col">Hadir</th>
                                     <th class="col-1 text-center" scope="col">Sakit</th>
                                     <th class="col-1 text-center" scope="col">Izin</th>
@@ -259,21 +259,15 @@
                                 <?php 
                                     include '../action/koneksi.php';
                                     $no = 1;
-                                    $data = mysqli_query($koneksi, "SELECT * FROM kelas2a");
+                                    $data = mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_kelas = '3'");
                                     while($d = mysqli_fetch_array($data)){
-                                        // Mendapatkan nilai dari database
-                                        $hadir = $d["hadir"];
-                                        $sakit = $d["sakit"];
-                                        $izin = $d["izin"];
-                                        $alpha = $d["alpha"];
                                 ?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $no++; ?></th>
                                     <td><?php echo $d["nis"]; ?></td>
                                     <td><?php echo $d["nama"]; ?></td>
-                                    <td><?php echo $d["jenis_kelamin"]; ?></td>
                                     <td class="col-1 text-center">
-                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]">
+                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]" checked>
                                     </td>
                                     <td class="col-1 text-center">
                                         <input class="form-check-input" type="radio" value="S" name="option[<?php echo $d['nis']; ?>]">
@@ -285,7 +279,6 @@
                                         <input class="form-check-input" type="radio" value="A" name="option[<?php echo $d['nis']; ?>]">
                                     </td>
                                     <input type="hidden" name="nis[]" value="<?php echo $d['nis']; ?>">
-                                    <input type="hidden" name="namatabel" value="kelas2a">
                                 </tr>
                                 <?php } ?>
                                 </tbody>
@@ -299,7 +292,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">  <!--KELAS 2B-->
+        <div class="row mb-3">  <!--KELAS 2B-->
             <div class="col">
                 <div class="dropdown d-grid"><!--Kelas-->
                     <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
@@ -307,23 +300,26 @@
                     </button>
                     <ul class="dropdown-menu w-100 p-0">
                         <li>
-                            <form method="POST" action="../action/simpanData.php">
-                            <label class="ms-3" for="kolom_tanggal">Pilih Kolom Tanggal : </label>
-                            <select class="btn btn-primary dropdown-toggle" name="kolom_tanggal" id="kolom_tanggal">
-                                <?php
-                                // Menampilkan opsi dropdown untuk setiap kolom tanggal dari tgl1 hingga tgl31
-                                for ($i = 1; $i <= 31; $i++) {
-                                    echo "<option class='dropdown-item' value='tgl$i'>Tanggal $i</option>";
-                                }
-                                ?>
-                            </select>
+                            <form method="POST" action="../action/simpan.php">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="tanggal">Tanggal : </label>
+                                    <input id="tanggal" class="form-control" type="date" name="tanggal">
+                                </div>
+                                <div class="col">
+                                    <label for="matapelajaran">Pelajaran : </label>
+                                    <select id="matapelajaran" class="form-control" name="matapelajaran">
+                                        <option value="1">Fiqih</option>
+                                        <option value="2">Akhlaq</option>
+                                    </select>
+                                </div>
+                            </div>
                             <table class="table table-striped m-0 align-items-center">
                                 <thead>
                                   <tr>
                                     <th class="text-center" scope="col">#</th>
                                     <th scope="col">NIS</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">JK</th>
                                     <th class="col-1 text-center" scope="col">Hadir</th>
                                     <th class="col-1 text-center" scope="col">Sakit</th>
                                     <th class="col-1 text-center" scope="col">Izin</th>
@@ -334,21 +330,15 @@
                                 <?php 
                                     include '../action/koneksi.php';
                                     $no = 1;
-                                    $data = mysqli_query($koneksi, "SELECT * FROM kelas2b");
+                                    $data = mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_kelas = '4'");
                                     while($d = mysqli_fetch_array($data)){
-                                        // Mendapatkan nilai dari database
-                                        $hadir = $d["hadir"];
-                                        $sakit = $d["sakit"];
-                                        $izin = $d["izin"];
-                                        $alpha = $d["alpha"];
                                 ?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $no++; ?></th>
                                     <td><?php echo $d["nis"]; ?></td>
                                     <td><?php echo $d["nama"]; ?></td>
-                                    <td><?php echo $d["jenis_kelamin"]; ?></td>
                                     <td class="col-1 text-center">
-                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]">
+                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]" checked>
                                     </td>
                                     <td class="col-1 text-center">
                                         <input class="form-check-input" type="radio" value="S" name="option[<?php echo $d['nis']; ?>]">
@@ -360,7 +350,6 @@
                                         <input class="form-check-input" type="radio" value="A" name="option[<?php echo $d['nis']; ?>]">
                                     </td>
                                     <input type="hidden" name="nis[]" value="<?php echo $d['nis']; ?>">
-                                    <input type="hidden" name="namatabel" value="kelas2b">
                                 </tr>
                                 <?php } ?>
                                 </tbody>
@@ -374,7 +363,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">  <!--KELAS 3A-->
+        <div class="row mb-3">  <!--KELAS 3A-->
             <div class="col">
                 <div class="dropdown d-grid"><!--Kelas-->
                     <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
@@ -382,23 +371,26 @@
                     </button>
                     <ul class="dropdown-menu w-100 p-0">
                         <li>
-                            <form method="POST" action="../action/simpanData.php">
-                            <label class="ms-3" for="kolom_tanggal">Pilih Kolom Tanggal : </label>
-                            <select class="btn btn-primary dropdown-toggle" name="kolom_tanggal" id="kolom_tanggal">
-                                <?php
-                                // Menampilkan opsi dropdown untuk setiap kolom tanggal dari tgl1 hingga tgl31
-                                for ($i = 1; $i <= 31; $i++) {
-                                    echo "<option class='dropdown-item' value='tgl$i'>Tanggal $i</option>";
-                                }
-                                ?>
-                            </select>
+                            <form method="POST" action="../action/simpan.php">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="tanggal">Tanggal : </label>
+                                    <input id="tanggal" class="form-control" type="date" name="tanggal">
+                                </div>
+                                <div class="col">
+                                    <label for="matapelajaran">Pelajaran : </label>
+                                    <select id="matapelajaran" class="form-control" name="matapelajaran">
+                                        <option value="1">Fiqih</option>
+                                        <option value="2">Akhlaq</option>
+                                    </select>
+                                </div>
+                            </div>
                             <table class="table table-striped m-0 align-items-center">
                                 <thead>
                                   <tr>
                                     <th class="text-center" scope="col">#</th>
                                     <th scope="col">NIS</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">JK</th>
                                     <th class="col-1 text-center" scope="col">Hadir</th>
                                     <th class="col-1 text-center" scope="col">Sakit</th>
                                     <th class="col-1 text-center" scope="col">Izin</th>
@@ -409,21 +401,15 @@
                                 <?php 
                                     include '../action/koneksi.php';
                                     $no = 1;
-                                    $data = mysqli_query($koneksi, "SELECT * FROM kelas3a");
+                                    $data = mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_kelas = '5'");
                                     while($d = mysqli_fetch_array($data)){
-                                        // Mendapatkan nilai dari database
-                                        $hadir = $d["hadir"];
-                                        $sakit = $d["sakit"];
-                                        $izin = $d["izin"];
-                                        $alpha = $d["alpha"];
                                 ?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $no++; ?></th>
                                     <td><?php echo $d["nis"]; ?></td>
                                     <td><?php echo $d["nama"]; ?></td>
-                                    <td><?php echo $d["jenis_kelamin"]; ?></td>
                                     <td class="col-1 text-center">
-                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]">
+                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]" checked>
                                     </td>
                                     <td class="col-1 text-center">
                                         <input class="form-check-input" type="radio" value="S" name="option[<?php echo $d['nis']; ?>]">
@@ -435,7 +421,6 @@
                                         <input class="form-check-input" type="radio" value="A" name="option[<?php echo $d['nis']; ?>]">
                                     </td>
                                     <input type="hidden" name="nis[]" value="<?php echo $d['nis']; ?>">
-                                    <input type="hidden" name="namatabel" value="kelas3a">
                                 </tr>
                                 <?php } ?>
                                 </tbody>
@@ -449,7 +434,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">  <!--KELAS 3B-->
+        <div class="row mb-3">  <!--KELAS 3B-->
             <div class="col">
                 <div class="dropdown d-grid"><!--Kelas-->
                     <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
@@ -457,23 +442,26 @@
                     </button>
                     <ul class="dropdown-menu w-100 p-0">
                         <li>
-                            <form method="POST" action="../action/simpanData.php">
-                            <label class="ms-3" for="kolom_tanggal">Pilih Kolom Tanggal : </label>
-                            <select class="btn btn-primary dropdown-toggle" name="kolom_tanggal" id="kolom_tanggal">
-                                <?php
-                                // Menampilkan opsi dropdown untuk setiap kolom tanggal dari tgl1 hingga tgl31
-                                for ($i = 1; $i <= 31; $i++) {
-                                    echo "<option class='dropdown-item' value='tgl$i'>Tanggal $i</option>";
-                                }
-                                ?>
-                            </select>
+                            <form method="POST" action="../action/simpan.php">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="tanggal">Tanggal : </label>
+                                    <input id="tanggal" class="form-control" type="date" name="tanggal">
+                                </div>
+                                <div class="col">
+                                    <label for="matapelajaran">Pelajaran : </label>
+                                    <select id="matapelajaran" class="form-control" name="matapelajaran">
+                                        <option value="1">Fiqih</option>
+                                        <option value="2">Akhlaq</option>
+                                    </select>
+                                </div>
+                            </div>
                             <table class="table table-striped m-0 align-items-center">
                                 <thead>
                                   <tr>
                                     <th class="text-center" scope="col">#</th>
                                     <th scope="col">NIS</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">JK</th>
                                     <th class="col-1 text-center" scope="col">Hadir</th>
                                     <th class="col-1 text-center" scope="col">Sakit</th>
                                     <th class="col-1 text-center" scope="col">Izin</th>
@@ -484,21 +472,15 @@
                                 <?php 
                                     include '../action/koneksi.php';
                                     $no = 1;
-                                    $data = mysqli_query($koneksi, "SELECT * FROM kelas3b");
+                                    $data = mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_kelas = '6'");
                                     while($d = mysqli_fetch_array($data)){
-                                        // Mendapatkan nilai dari database
-                                        $hadir = $d["hadir"];
-                                        $sakit = $d["sakit"];
-                                        $izin = $d["izin"];
-                                        $alpha = $d["alpha"];
                                 ?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $no++; ?></th>
                                     <td><?php echo $d["nis"]; ?></td>
                                     <td><?php echo $d["nama"]; ?></td>
-                                    <td><?php echo $d["jenis_kelamin"]; ?></td>
                                     <td class="col-1 text-center">
-                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]">
+                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]" checked>
                                     </td>
                                     <td class="col-1 text-center">
                                         <input class="form-check-input" type="radio" value="S" name="option[<?php echo $d['nis']; ?>]">
@@ -510,7 +492,6 @@
                                         <input class="form-check-input" type="radio" value="A" name="option[<?php echo $d['nis']; ?>]">
                                     </td>
                                     <input type="hidden" name="nis[]" value="<?php echo $d['nis']; ?>">
-                                    <input type="hidden" name="namatabel" value="kelas3b">
                                 </tr>
                                 <?php } ?>
                                 </tbody>
@@ -524,7 +505,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">  <!--KELAS 4-->
+        <div class="row">  <!--KELAS 4-->
             <div class="col">
                 <div class="dropdown d-grid"><!--Kelas-->
                     <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
@@ -532,23 +513,26 @@
                     </button>
                     <ul class="dropdown-menu w-100 p-0">
                         <li>
-                            <form method="POST" action="../action/simpanData.php">
-                            <label class="ms-3" for="kolom_tanggal">Pilih Kolom Tanggal : </label>
-                            <select class="btn btn-primary dropdown-toggle" name="kolom_tanggal" id="kolom_tanggal">
-                                <?php
-                                // Menampilkan opsi dropdown untuk setiap kolom tanggal dari tgl1 hingga tgl31
-                                for ($i = 1; $i <= 31; $i++) {
-                                    echo "<option class='dropdown-item' value='tgl$i'>Tanggal $i</option>";
-                                }
-                                ?>
-                            </select>
+                            <form method="POST" action="../action/simpan.php">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="tanggal">Tanggal : </label>
+                                    <input id="tanggal" class="form-control" type="date" name="tanggal">
+                                </div>
+                                <div class="col">
+                                    <label for="matapelajaran">Pelajaran : </label>
+                                    <select id="matapelajaran" class="form-control" name="matapelajaran">
+                                        <option value="1">Fiqih</option>
+                                        <option value="2">Akhlaq</option>
+                                    </select>
+                                </div>
+                            </div>
                             <table class="table table-striped m-0 align-items-center">
                                 <thead>
                                   <tr>
                                     <th class="text-center" scope="col">#</th>
                                     <th scope="col">NIS</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">JK</th>
                                     <th class="col-1 text-center" scope="col">Hadir</th>
                                     <th class="col-1 text-center" scope="col">Sakit</th>
                                     <th class="col-1 text-center" scope="col">Izin</th>
@@ -559,21 +543,15 @@
                                 <?php 
                                     include '../action/koneksi.php';
                                     $no = 1;
-                                    $data = mysqli_query($koneksi, "SELECT * FROM kelas4");
+                                    $data = mysqli_query($koneksi, "SELECT * FROM siswa WHERE id_kelas = '7'");
                                     while($d = mysqli_fetch_array($data)){
-                                        // Mendapatkan nilai dari database
-                                        $hadir = $d["hadir"];
-                                        $sakit = $d["sakit"];
-                                        $izin = $d["izin"];
-                                        $alpha = $d["alpha"];
                                 ?>
                                 <tr>
                                     <th class="text-center" scope="row"><?php echo $no++; ?></th>
                                     <td><?php echo $d["nis"]; ?></td>
                                     <td><?php echo $d["nama"]; ?></td>
-                                    <td><?php echo $d["jenis_kelamin"]; ?></td>
                                     <td class="col-1 text-center">
-                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]">
+                                        <input class="form-check-input" type="radio" value="H" name="option[<?php echo $d['nis']; ?>]" checked>
                                     </td>
                                     <td class="col-1 text-center">
                                         <input class="form-check-input" type="radio" value="S" name="option[<?php echo $d['nis']; ?>]">
@@ -585,7 +563,6 @@
                                         <input class="form-check-input" type="radio" value="A" name="option[<?php echo $d['nis']; ?>]">
                                     </td>
                                     <input type="hidden" name="nis[]" value="<?php echo $d['nis']; ?>">
-                                    <input type="hidden" name="namatabel" value="kelas4">
                                 </tr>
                                 <?php } ?>
                                 </tbody>
@@ -619,6 +596,15 @@
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
         });
         });
+
+        function getToday() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+        document.getElementById('tanggal').value = getToday();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

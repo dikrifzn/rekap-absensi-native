@@ -58,6 +58,7 @@
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Pilih Kelas</label>
         <select class="form-select" id="inputGroupSelect01" name="kelas">
+        <option value="all">Semua</option>
           <option value="1A">Kelas 1A</option>
           <option value="1B">Kelas 1B</option>
           <option value="2A" selected>Kelas 2A</option>
@@ -65,12 +66,11 @@
           <option value="3A">Kelas 3A</option>
           <option value="3B">Kelas 3B</option>
           <option value="4">Kelas 4</option>
-          <option value="all">Semua</option>
         </select>
       </div>
       <div class="row">
         <div class="col">
-          <a href="../action/exportExcel.php?table=kelas2a">
+          <a href="../action/sheet.php?kelas=3">
               <button class="btn btn-primary">Download Rekap Kehadiran</button>
           </a>
         </div>
@@ -89,37 +89,45 @@
             <th class="col-1" scope="col">#</th>
             <th class="col-2" scope="col">NIS</th>
             <th class="col-4" scope="col">Nama</th>
-            <th class="col-1" scope="col">JK</th>
             <th class="col-1" scope="col">Hadir</th>
             <th class="col-1" scope="col">Sakit</th>
             <th class="col-1" scope="col">Izin</th>
             <th class="col-1" scope="col">Alpha</th>
           </tr>
         </thead>
+        </thead>
         <tbody id="data-table-body">
             <?php
             include "../action/koneksi.php";
-                // Menampilkan seluruh data jika tidak ada pencarian
-                $no = 1;
-                $data = mysqli_query($koneksi, "SELECT * FROM kelas2a");
-                while($d = mysqli_fetch_array($data)){
-                  echo "<tr>";
-                  echo "<th class='text-center' scope='row'>" . $no++ . "</th>";
-                  echo "<td class='text-center'>" . $d["nis"] . "</td>";
-                  echo "<td class='text-start'>" . $d["nama"] . "</td>";
-                  echo "<td class='text-center'>" . $d["jenis_kelamin"] . "</td>";
-                  
-                  // Menambahkan warna merah jika nilai lebih dari 3
-                  $sakitColor = ($d['sakit'] > 3) ? 'text-danger fw-bold' : '';
-                  $izinColor = ($d['izin'] > 3) ? 'text-danger fw-bold' : '';
-                  $alphaColor = ($d['alpha'] > 3) ? 'text-danger fw-bold' : '';
-  
-                  echo "<td class='text-center'>" . $d["hadir"] . "</td>";
-                  echo "<td class='text-center $sakitColor'>" . $d["sakit"] . "</td>";
-                  echo "<td class='text-center $izinColor'>" . $d["izin"] . "</td>";
-                  echo "<td class='text-center $alphaColor'>" . $d["alpha"] . "</td>";
-                  echo "</tr>";
-                }
+
+            $no = 1;
+            $data = mysqli_query($koneksi, "SELECT siswa.nis, siswa.nama, kelas.nama_kelas,
+            SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END) as hadir,
+            SUM(CASE WHEN presensi.status_presensi = 'S' THEN 1 ELSE 0 END) as sakit,
+            SUM(CASE WHEN presensi.status_presensi = 'I' THEN 1 ELSE 0 END) as izin,
+            SUM(CASE WHEN presensi.status_presensi = 'A' THEN 1 ELSE 0 END) as alpha
+            FROM siswa
+            LEFT JOIN presensi ON siswa.nis = presensi.nis
+            LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
+            WHERE kelas.id_kelas = '3'
+            GROUP BY siswa.nis");
+            
+            while($d = mysqli_fetch_array($data)){
+                echo "<tr>";
+                echo "<th class='text-center' scope='row'>" . $no++ . "</th>";
+                echo "<td class='text-center'>" . $d["nis"] . "</td>";
+                echo "<td class='text-start'>" . $d["nama"] . "</td>";
+                
+                $sakitColor = ($d['sakit'] > 3) ? 'text-danger fw-bold' : '';
+                $izinColor = ($d['izin'] > 3) ? 'text-danger fw-bold' : '';
+                $alphaColor = ($d['alpha'] > 3) ? 'text-danger fw-bold' : '';
+
+                echo "<td class='text-center'>" . $d["hadir"] . "</td>";
+                echo "<td class='text-center $sakitColor'>" . $d["sakit"] . "</td>";
+                echo "<td class='text-center $izinColor'>" . $d["izin"] . "</td>";
+                echo "<td class='text-center $alphaColor'>" . $d["alpha"] . "</td>";
+                echo "</tr>";
+            }
             ?>
         </tbody>
       </table>
@@ -139,16 +147,18 @@
       $('#inputGroupSelect01').change(function() {
         var selectedKelas = $(this).val();
 
-        // Display message based on the selected option
         switch(selectedKelas) {
-          case '1A':
+          case 'all':
             window.location.href = 'rekapKehadiran.php';
+            break;
+          case '1A':
+            window.location.href = 'rekap1A.php';
             break;
           case '1B':
             window.location.href = 'rekap1B.php';
             break;
           case '2A':
-            window.location.href = '#';
+            window.location.href = 'rekap2A.php';
             break;
           case '2B':
             window.location.href = 'rekap2B.php';
@@ -162,9 +172,6 @@
           case '4':
             window.location.href = 'rekap4.php';
             break;
-          case 'all':
-            window.location.href = 'rekapSemua.php';
-            break;
         }
       });
     });
@@ -172,7 +179,7 @@
     $(document).ready(function() {
       $("#search").on("keyup", function() {
           var value = $(this).val().toLowerCase();
-          var tabel = "kelas2a"; // Ganti dengan nama tabel yang diinginkan
+          var tabel = "kelas1a"; // Ganti dengan nama tabel yang diinginkan
           $.ajax({
               url: "../action/search.php",
               type: "POST",
@@ -183,6 +190,7 @@
           });
       });
     });
+
   </script>
 </body>
 </html>

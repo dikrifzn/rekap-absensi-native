@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2024 at 03:32 PM
+-- Generation Time: Feb 05, 2024 at 02:38 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.4
 
@@ -24,525 +24,45 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas1a`
+-- Table structure for table `kelas`
 --
 
-CREATE TABLE `kelas1a` (
-  `nis` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `jenis_kelamin` enum('L','P') COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl1` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl2` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl3` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl4` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl5` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl6` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl7` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl8` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl9` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl10` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl11` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl12` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl13` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl14` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl15` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl16` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl17` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl18` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl19` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl20` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl21` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl22` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl23` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl24` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl25` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl26` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl27` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl28` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl29` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl30` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl31` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `hadir` int NOT NULL,
-  `sakit` int NOT NULL,
-  `izin` int NOT NULL,
-  `alpha` int NOT NULL
+CREATE TABLE `kelas` (
+  `id_kelas` int NOT NULL,
+  `nama_kelas` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kelas1a`
+-- Dumping data for table `kelas`
 --
 
-INSERT INTO `kelas1a` (`nis`, `nama`, `jenis_kelamin`, `tgl1`, `tgl2`, `tgl3`, `tgl4`, `tgl5`, `tgl6`, `tgl7`, `tgl8`, `tgl9`, `tgl10`, `tgl11`, `tgl12`, `tgl13`, `tgl14`, `tgl15`, `tgl16`, `tgl17`, `tgl18`, `tgl19`, `tgl20`, `tgl21`, `tgl22`, `tgl23`, `tgl24`, `tgl25`, `tgl26`, `tgl27`, `tgl28`, `tgl29`, `tgl30`, `tgl31`, `hadir`, `sakit`, `izin`, `alpha`) VALUES
-('12301', 'ACIL', 'L', 'S', 'H', 'S', 'I', 'I', 'H', 'H', '', '', 'H', '', '', 'H', '', 'H', 'A', 'A', 'A', 'A', '', '', '', '', '', '', '', '', '', '', '', '', 6, 2, 2, 4),
-('12302', 'AFRILA NAIFA R', 'P', 'H', 'S', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 1, 2, 0),
-('12303', 'ALIP RIZKI', 'L', 'S', 'H', 'S', 'I', 'S', 'S', '', '', '', 'H', '', '', 'H', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 4, 4, 1, 0),
-('12304', 'ANGGA', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12305', 'ARFAN', 'L', 'H', 'H', 'H', 'I', 'I', 'I', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 5, 0, 3, 0),
-('12306', 'AZRIL', 'L', 'H', 'H', 'H', 'I', 'I', 'A', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 5, 0, 2, 1),
-('12307', 'BAGAS', 'L', 'H', 'H', 'H', 'I', 'I', 'A', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 5, 0, 2, 1),
-('12308', 'DEVIKA', 'P', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12309', 'DIVA', 'P', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12310', 'EVANO FARZAN F', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12311', 'FAREL', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12312', 'HAFIDZ', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12313', 'HAIKAL', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12314', 'HILMA', 'P', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12315', 'LAILA', 'P', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12316', 'M. ALFATIH GUNAWAN', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12317', 'M. REYSHAKA ATHALA', 'P', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12318', 'MIRAZ', 'P', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12319', 'MUHAMAD ALFAN', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12320', 'MUHAMAD FARIZ', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12321', 'MUHAMAD KHOIRUL AJAM', 'L', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12322', 'QIANA', 'P', 'H', 'H', 'H', 'I', 'I', 'H', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 6, 0, 2, 0),
-('12323', 'RAFFA', 'L', 'H', 'H', 'H', 'I', 'I', 'S', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 5, 1, 2, 0),
-('12324', 'ROBI', 'L', 'H', 'H', 'H', 'I', 'A', 'S', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 5, 1, 1, 1),
-('12325', 'SHEILA', 'P', 'H', 'H', 'H', 'I', 'I', 'S', '', '', '', 'H', '', '', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 5, 1, 2, 0),
-('12326', 'YUNA TAJRILAHSYAH', 'L', 'H', 'H', 'H', 'A', 'A', 'I', '', '', '', 'H', '', '', 'S', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 4, 1, 1, 2);
+INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
+(1, '1A'),
+(2, '1B'),
+(3, '2A'),
+(4, '2B'),
+(5, '3A'),
+(6, '3B'),
+(7, '4');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas1b`
+-- Table structure for table `matapelajaran`
 --
 
-CREATE TABLE `kelas1b` (
-  `nis` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `jenis_kelamin` enum('L','P') COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl1` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl2` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl3` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl4` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl5` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl6` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl7` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl8` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl9` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl10` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl11` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl12` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl13` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl14` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl15` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl16` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl17` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl18` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl19` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl20` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl21` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl22` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl23` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl24` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl25` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl26` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl27` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl28` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl29` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl30` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl31` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `hadir` int DEFAULT NULL,
-  `sakit` int DEFAULT NULL,
-  `izin` int DEFAULT NULL,
-  `alpha` int DEFAULT NULL
+CREATE TABLE `matapelajaran` (
+  `id_matapelajaran` int NOT NULL,
+  `matapelajaran` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kelas1b`
+-- Dumping data for table `matapelajaran`
 --
 
-INSERT INTO `kelas1b` (`nis`, `nama`, `jenis_kelamin`, `tgl1`, `tgl2`, `tgl3`, `tgl4`, `tgl5`, `tgl6`, `tgl7`, `tgl8`, `tgl9`, `tgl10`, `tgl11`, `tgl12`, `tgl13`, `tgl14`, `tgl15`, `tgl16`, `tgl17`, `tgl18`, `tgl19`, `tgl20`, `tgl21`, `tgl22`, `tgl23`, `tgl24`, `tgl25`, `tgl26`, `tgl27`, `tgl28`, `tgl29`, `tgl30`, `tgl31`, `hadir`, `sakit`, `izin`, `alpha`) VALUES
-('12301', 'ADAM NURWAHID', 'L', 'H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, 0, 0, 0),
-('12302', 'ARFAN ABDUL H', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12303', 'BABONG PADLI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12304', 'CHERUL', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12305', 'DIAH S F', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12306', 'ELVIRA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12307', 'FATIMAH (IFAZ)', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12308', 'FINA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12309', 'HISYAM', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12310', 'KANZA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12311', 'KEYSA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12312', 'M. NIZAR ALFARIZI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12313', 'MUTIA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12314', 'NAFISA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12315', 'NAOMI NUR AFIFAH', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12316', 'NAUREEN RUMAISHA R', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12317', 'PUTRI', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12318', 'RAFFA', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12319', 'REIHAN R', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12320', 'RIZKA DWI FEBRIANI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12321', 'RUDI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12322', 'SHEVA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12323', 'ZAHWA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kelas2a`
---
-
-CREATE TABLE `kelas2a` (
-  `nis` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
-  `jenis_kelamin` enum('L','P') COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl1` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl2` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl3` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl4` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl5` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl6` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl7` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl8` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl9` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl10` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl11` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl12` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl13` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl14` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl15` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl16` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl17` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl18` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl19` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl20` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl21` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl22` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl23` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl24` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl25` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl26` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl27` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl28` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl29` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl30` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `tgl31` varchar(1) COLLATE utf8mb4_general_ci NOT NULL,
-  `hadir` int NOT NULL,
-  `sakit` int NOT NULL,
-  `izin` int NOT NULL,
-  `alpha` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kelas2a`
---
-
-INSERT INTO `kelas2a` (`nis`, `nama`, `jenis_kelamin`, `tgl1`, `tgl2`, `tgl3`, `tgl4`, `tgl5`, `tgl6`, `tgl7`, `tgl8`, `tgl9`, `tgl10`, `tgl11`, `tgl12`, `tgl13`, `tgl14`, `tgl15`, `tgl16`, `tgl17`, `tgl18`, `tgl19`, `tgl20`, `tgl21`, `tgl22`, `tgl23`, `tgl24`, `tgl25`, `tgl26`, `tgl27`, `tgl28`, `tgl29`, `tgl30`, `tgl31`, `hadir`, `sakit`, `izin`, `alpha`) VALUES
-('12301', 'AGAM', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12302', 'AINANYYA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12303', 'ALFIKRI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12304', 'DARA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12305', 'HANI KHAIRUNNISA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12306', 'KHOIRUL ANAM', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12307', 'KILAU', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12308', 'M. NUR RIZKY', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12309', 'RAFIKA SITI', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12310', 'RAQILA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12311', 'REYNAND', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12312', 'SYILA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12313', 'TIARA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12314', 'TIARA AYU', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12315', 'WULANDARI', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12316', 'ZENIA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12317', 'ZIKRINNA', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kelas2b`
---
-
-CREATE TABLE `kelas2b` (
-  `nis` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `jenis_kelamin` enum('L','P') COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl1` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl2` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl3` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl4` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl5` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl6` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl7` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl8` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl9` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl10` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl11` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl12` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl13` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl14` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl15` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl16` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl17` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl18` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl19` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl20` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl21` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl22` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl23` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl24` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl25` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl26` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl27` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl28` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl29` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl30` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl31` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `hadir` int DEFAULT NULL,
-  `sakit` int DEFAULT NULL,
-  `izin` int DEFAULT NULL,
-  `alpha` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kelas2b`
---
-
-INSERT INTO `kelas2b` (`nis`, `nama`, `jenis_kelamin`, `tgl1`, `tgl2`, `tgl3`, `tgl4`, `tgl5`, `tgl6`, `tgl7`, `tgl8`, `tgl9`, `tgl10`, `tgl11`, `tgl12`, `tgl13`, `tgl14`, `tgl15`, `tgl16`, `tgl17`, `tgl18`, `tgl19`, `tgl20`, `tgl21`, `tgl22`, `tgl23`, `tgl24`, `tgl25`, `tgl26`, `tgl27`, `tgl28`, `tgl29`, `tgl30`, `tgl31`, `hadir`, `sakit`, `izin`, `alpha`) VALUES
-('12301', 'ALYA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12302', 'ARFI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12303', 'ARYA', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12304', 'HAFIZ', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12305', 'HANA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12306', 'IRWANSYAH', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12307', 'RAIHAN', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12308', 'RASYA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12309', 'REFINA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12310', 'REVAN', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12311', 'RIDO', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12312', 'YUNITA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12313', 'ZASKIA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kelas3a`
---
-
-CREATE TABLE `kelas3a` (
-  `nis` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `jenis_kelamin` enum('L','P') COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl1` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl2` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl3` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl4` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl5` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl6` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl7` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl8` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl9` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl10` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl11` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl12` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl13` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl14` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl15` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl16` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl17` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl18` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl19` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl20` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl21` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl22` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl23` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl24` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl25` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl26` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl27` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl28` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl29` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl30` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl31` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `hadir` int DEFAULT NULL,
-  `sakit` int DEFAULT NULL,
-  `izin` int DEFAULT NULL,
-  `alpha` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kelas3a`
---
-
-INSERT INTO `kelas3a` (`nis`, `nama`, `jenis_kelamin`, `tgl1`, `tgl2`, `tgl3`, `tgl4`, `tgl5`, `tgl6`, `tgl7`, `tgl8`, `tgl9`, `tgl10`, `tgl11`, `tgl12`, `tgl13`, `tgl14`, `tgl15`, `tgl16`, `tgl17`, `tgl18`, `tgl19`, `tgl20`, `tgl21`, `tgl22`, `tgl23`, `tgl24`, `tgl25`, `tgl26`, `tgl27`, `tgl28`, `tgl29`, `tgl30`, `tgl31`, `hadir`, `sakit`, `izin`, `alpha`) VALUES
-('12301', 'AFIKA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1, 1, 1, 2),
-('12302', 'AQILA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12303', 'DANIS', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12304', 'DONA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12305', 'EDGAR', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12306', 'FASYA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12307', 'HABAWI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12308', 'HABIBI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12309', 'HALWA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12310', 'KEYLA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12311', 'KEYSHA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12312', 'LUCKY', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12313', 'M. AZKA', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12314', 'M. HILMI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12315', 'NABILA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12316', 'QUEEN', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12317', 'RAFA', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12318', 'RAYA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12319', 'SYIFA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12320', 'TUFAIL ALGIFARI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12321', 'YAZID', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kelas3b`
---
-
-CREATE TABLE `kelas3b` (
-  `nis` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `jenis_kelamin` enum('L','P') COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl1` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl2` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl3` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl4` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl5` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl6` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl7` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl8` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl9` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl10` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl11` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl12` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl13` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl14` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl15` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl16` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl17` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl18` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl19` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl20` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl21` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl22` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl23` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl24` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl25` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl26` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl27` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl28` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl29` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl30` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl31` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `hadir` int DEFAULT NULL,
-  `sakit` int DEFAULT NULL,
-  `izin` int DEFAULT NULL,
-  `alpha` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kelas3b`
---
-
-INSERT INTO `kelas3b` (`nis`, `nama`, `jenis_kelamin`, `tgl1`, `tgl2`, `tgl3`, `tgl4`, `tgl5`, `tgl6`, `tgl7`, `tgl8`, `tgl9`, `tgl10`, `tgl11`, `tgl12`, `tgl13`, `tgl14`, `tgl15`, `tgl16`, `tgl17`, `tgl18`, `tgl19`, `tgl20`, `tgl21`, `tgl22`, `tgl23`, `tgl24`, `tgl25`, `tgl26`, `tgl27`, `tgl28`, `tgl29`, `tgl30`, `tgl31`, `hadir`, `sakit`, `izin`, `alpha`) VALUES
-('12301', 'ALEISYA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12302', 'ALIP AHMAD S', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12303', 'BISMA', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12304', 'DEA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12305', 'DILA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12306', 'FAQIH', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12307', 'FITRA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12308', 'HAFIZ', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12309', 'HAURA NAZHIFA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12310', 'KEVIN', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12311', 'M. NURRIZKY', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12312', 'M. SIDQI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12313', 'NABILA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12314', 'NARAS', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12315', 'NIKEN', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12316', 'REVAN', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12317', 'RIDWAN FADIL', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12318', 'RIFA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12319', 'SHERIL', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12320', 'SYAKIRA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12321', 'ZAIN', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12322', 'ZIRA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kelas4`
---
-
-CREATE TABLE `kelas4` (
-  `nis` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
-  `nama` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `jenis_kelamin` enum('L','P') COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl1` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl2` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl3` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl4` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl5` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl6` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl7` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl8` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl9` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl10` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl11` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl12` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl13` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl14` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl15` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl16` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl17` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl18` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl19` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl20` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl21` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl22` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl23` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl24` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl25` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl26` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl27` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl28` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl29` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl30` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tgl31` varchar(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `hadir` int DEFAULT NULL,
-  `sakit` int DEFAULT NULL,
-  `izin` int DEFAULT NULL,
-  `alpha` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kelas4`
---
-
-INSERT INTO `kelas4` (`nis`, `nama`, `jenis_kelamin`, `tgl1`, `tgl2`, `tgl3`, `tgl4`, `tgl5`, `tgl6`, `tgl7`, `tgl8`, `tgl9`, `tgl10`, `tgl11`, `tgl12`, `tgl13`, `tgl14`, `tgl15`, `tgl16`, `tgl17`, `tgl18`, `tgl19`, `tgl20`, `tgl21`, `tgl22`, `tgl23`, `tgl24`, `tgl25`, `tgl26`, `tgl27`, `tgl28`, `tgl29`, `tgl30`, `tgl31`, `hadir`, `sakit`, `izin`, `alpha`) VALUES
-('12301', 'AINIYYAH', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12302', 'AKIRA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12303', 'ALENA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12304', 'ALIP R', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12305', 'ALYA AURA PUTRI', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12306', 'ASYA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12307', 'AULIA AGUSTIN', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12308', 'BIANCA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12309', 'CAROLINE', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12310', 'CLARA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12311', 'FAREL', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12312', 'HABIBI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12313', 'HAIKAL', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12314', 'IFRINA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12315', 'ISYE', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12316', 'M. FADIL', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12317', 'M. NURRIZKI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12318', 'MARSYA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12319', 'NABIL', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12320', 'NADIA MAHDA AULIA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12321', 'NUMAN', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12322', 'OPIK', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12323', 'PANJI', 'L', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12324', 'RIKA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12325', 'RIYANTI', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12326', 'SAFA NUR MAULIDA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12327', 'SITI NUR', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12328', 'SYIFA AULIA DEWI', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12329', 'TALITA HASNA', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0),
-('12330', 'YURI', 'P', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0);
+INSERT INTO `matapelajaran` (`id_matapelajaran`, `matapelajaran`) VALUES
+(1, 'Fiqih'),
+(2, 'Akhlaq');
 
 -- --------------------------------------------------------
 
@@ -563,57 +83,285 @@ INSERT INTO `pengguna` (`username`, `password`) VALUES
 ('admin', '123'),
 ('dikrr', 'coba123');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `presensi`
+--
+
+CREATE TABLE `presensi` (
+  `id_presensi` int NOT NULL,
+  `tanggal` date DEFAULT NULL,
+  `nis` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_matapelajaran` int DEFAULT NULL,
+  `status_presensi` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `presensi`
+--
+
+INSERT INTO `presensi` (`id_presensi`, `tanggal`, `nis`, `id_matapelajaran`, `status_presensi`) VALUES
+(341, '2024-02-03', '12301', 1, 'H'),
+(342, '2024-02-03', '12302', 1, 'H'),
+(343, '2024-02-03', '12303', 1, 'H'),
+(344, '2024-02-03', '12304', 1, 'H'),
+(345, '2024-02-03', '12305', 1, 'H'),
+(346, '2024-02-03', '12306', 1, 'H'),
+(347, '2024-02-03', '12307', 1, 'H'),
+(348, '2024-02-03', '12308', 1, 'H'),
+(349, '2024-02-03', '12309', 1, 'H'),
+(350, '2024-02-03', '12310', 1, 'H'),
+(351, '2024-02-03', '12311', 1, 'H'),
+(352, '2024-02-03', '12312', 1, 'H'),
+(353, '2024-02-03', '12313', 1, 'H'),
+(354, '2024-02-03', '12314', 1, 'H'),
+(355, '2024-02-03', '12315', 1, 'H'),
+(356, '2024-02-03', '12316', 1, 'H'),
+(357, '2024-02-03', '12317', 1, 'H'),
+(358, '2024-02-03', '12318', 1, 'H'),
+(359, '2024-02-03', '12319', 1, 'H'),
+(360, '2024-02-03', '12320', 1, 'H'),
+(361, '2024-02-03', '12321', 1, 'H'),
+(362, '2024-02-03', '12322', 1, 'H'),
+(363, '2024-02-03', '12323', 1, 'H'),
+(364, '2024-02-03', '12324', 1, 'H'),
+(365, '2024-02-03', '12325', 1, 'H'),
+(366, '2024-02-03', '12326', 1, 'H');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `siswa`
+--
+
+CREATE TABLE `siswa` (
+  `nis` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_kelas` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `siswa`
+--
+
+INSERT INTO `siswa` (`nis`, `nama`, `id_kelas`) VALUES
+('12301', 'ACIL', 1),
+('12302', 'AFRILA NAIFA R', 1),
+('12303', 'ALIP RIZKI', 1),
+('12304', 'ANGGA', 1),
+('12305', 'ARFAN', 1),
+('12306', 'AZRIL', 1),
+('12307', 'BAGAS', 1),
+('12308', 'DEVIKA', 1),
+('12309', 'DIVA', 1),
+('12310', 'EVANO FARZAN F', 1),
+('12311', 'FAREL', 1),
+('12312', 'HAFIDZ', 1),
+('12313', 'HAIKAL', 1),
+('12314', 'HILMA', 1),
+('12315', 'LAILA', 1),
+('12316', 'M. ALFATIH GUNAWAN', 1),
+('12317', 'M. REYSHAKA ATHALA', 1),
+('12318', 'MIRAZ', 1),
+('12319', 'MUHAMAD ALFAN', 1),
+('12320', 'MUHAMAD FARIZ', 1),
+('12321', 'MUHAMAD KHOIRUL AJAM', 1),
+('12322', 'QIANA', 1),
+('12323', 'RAFFA', 1),
+('12324', 'ROBI', 1),
+('12325', 'SHEILA', 1),
+('12326', 'YUNA TAJRILAHSYAH', 1),
+('12327', 'ADAM NURWAHID', 2),
+('12328', 'ARFAN ABDUL H', 2),
+('12329', 'BABONG PADLI', 2),
+('12330', 'CHERUL', 2),
+('12331', 'DIAH S F', 2),
+('12332', 'ELVIRA', 2),
+('12333', 'FATIMAH (IFAZ)', 2),
+('12334', 'FINA', 2),
+('12335', 'HISYAM', 2),
+('12336', 'KANZA', 2),
+('12337', 'KEYSA', 2),
+('12338', 'M. NIZAR ALFARIZI', 2),
+('12339', 'MUTIA', 2),
+('12340', 'NAFISA', 2),
+('12341', 'NAOMI NUR AFIFAH', 2),
+('12342', 'NAUREEN RUMAISHA R', 2),
+('12343', 'PUTRI', 2),
+('12344', 'RAFFA', 2),
+('12345', 'REIHAN R', 2),
+('12346', 'RIZKA DWI FEBRIANI', 2),
+('12347', 'RUDI', 2),
+('12348', 'SHEVA', 2),
+('12349', 'ZAHWA', 2),
+('12350', 'AGAM', 3),
+('12351', 'AINANYYA', 3),
+('12352', 'ALFIKRI', 3),
+('12353', 'DARA', 3),
+('12354', 'HANI KHAIRUNNISA', 3),
+('12355', 'KHOIRUL ANAM', 3),
+('12356', 'KILAU', 3),
+('12357', 'M. NUR RIZKY', 3),
+('12358', 'RAFIKA SITI', 3),
+('12359', 'RAQILA', 3),
+('12360', 'REYNAND', 3),
+('12361', 'SYILA', 3),
+('12362', 'TIARA', 3),
+('12363', 'TIARA AYU', 3),
+('12364', 'WULANDARI', 3),
+('12365', 'ZENIA', 3),
+('12366', 'ZIKRINNA', 3),
+('12367', 'ALYA', 4),
+('12368', 'ARFI', 4),
+('12369', 'ARYA', 4),
+('12370', 'HAFIZ', 4),
+('12371', 'HANA', 4),
+('12372', 'IRWANSYAH', 4),
+('12373', 'RAIHAN', 4),
+('12374', 'RASYA', 4),
+('12375', 'REFINA', 4),
+('12376', 'REVAN', 4),
+('12377', 'RIDO', 4),
+('12378', 'YUNITA', 4),
+('12379', 'ZASKIA', 4),
+('12380', 'AFIKA', 5),
+('12381', 'AQILA', 5),
+('12382', 'DANIS', 5),
+('12383', 'DONA', 5),
+('12384', 'EDGAR', 5),
+('12385', 'FASYA', 5),
+('12386', 'HABAWI', 5),
+('12387', 'HABIBI', 5),
+('12388', 'HALWA', 5),
+('12389', 'KEYLA', 5),
+('12390', 'KEYSHA', 5),
+('12391', 'LUCKY', 5),
+('12392', 'M. AZKA', 5),
+('12393', 'M. HILMI', 5),
+('12394', 'NABILA', 5),
+('12395', 'QUEEN', 5),
+('12396', 'RAFA', 5),
+('12397', 'RAYA', 5),
+('12398', 'SYIFA', 5),
+('12399', 'TUFAIL ALGIFARI', 5),
+('12400', 'YAZID', 5),
+('12401', 'ALEISYA', 6),
+('12402', 'ALIP AHMAD S', 6),
+('12403', 'BISMA', 6),
+('12404', 'DEA', 6),
+('12405', 'DILA', 6),
+('12406', 'FAQIH', 6),
+('12407', 'FITRA', 6),
+('12408', 'HAFIZ', 6),
+('12409', 'HAVRA', 6),
+('12410', 'KEVIN', 6),
+('12411', 'M. NURRIZKY', 6),
+('12412', 'M. SIDQI', 6),
+('12413', 'NABILA', 6),
+('12414', 'NARAS', 6),
+('12415', 'NIKEN', 6),
+('12416', 'REVAN', 6),
+('12417', 'RIDWAN FADIL', 6),
+('12418', 'RIFA', 6),
+('12419', 'SHERIL', 6),
+('12420', 'SYAKIRA', 6),
+('12421', 'ZAIN', 6),
+('12422', 'ZIRA', 6),
+('12423', 'AINIYYAH', 7),
+('12424', 'AKIRA', 7),
+('12425', 'ALENA', 7),
+('12426', 'ALIP R', 7),
+('12427', 'ALYA AURA PUTRI', 7),
+('12428', 'ASYA', 7),
+('12429', 'AULIA AGUSTIN', 7),
+('12430', 'BIANCA', 7),
+('12431', 'CAROLINE', 7),
+('12432', 'CLARA', 7),
+('12433', 'FAREL', 7),
+('12434', 'HABIBI', 7),
+('12435', 'HAIKAL', 7),
+('12436', 'IFRINA', 7),
+('12437', 'ISYE', 7),
+('12438', 'M. FADIL', 7),
+('12439', 'M. NURRIZKI', 7),
+('12440', 'MARSYA', 7),
+('12441', 'NABIL', 7),
+('12442', 'NADIA MAHDA AULIA', 7),
+('12443', 'NUMAN', 7),
+('12444', 'OPIK', 7),
+('12445', 'PANJI', 7),
+('12446', 'RIKA', 7),
+('12447', 'RIYANTI', 7),
+('12448', 'SAFA NUR MAULIDA', 7),
+('12449', 'SITI NUR', 7),
+('12450', 'SYIFA AULIA DEWI', 7),
+('12451', 'TALITA HASNA', 7),
+('12452', 'YURI', 7);
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `kelas1a`
+-- Indexes for table `kelas`
 --
-ALTER TABLE `kelas1a`
-  ADD PRIMARY KEY (`nis`);
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indexes for table `kelas1b`
+-- Indexes for table `matapelajaran`
 --
-ALTER TABLE `kelas1b`
-  ADD PRIMARY KEY (`nis`);
-
---
--- Indexes for table `kelas2a`
---
-ALTER TABLE `kelas2a`
-  ADD PRIMARY KEY (`nis`);
-
---
--- Indexes for table `kelas2b`
---
-ALTER TABLE `kelas2b`
-  ADD PRIMARY KEY (`nis`);
-
---
--- Indexes for table `kelas3a`
---
-ALTER TABLE `kelas3a`
-  ADD PRIMARY KEY (`nis`);
-
---
--- Indexes for table `kelas3b`
---
-ALTER TABLE `kelas3b`
-  ADD PRIMARY KEY (`nis`);
-
---
--- Indexes for table `kelas4`
---
-ALTER TABLE `kelas4`
-  ADD PRIMARY KEY (`nis`);
+ALTER TABLE `matapelajaran`
+  ADD PRIMARY KEY (`id_matapelajaran`);
 
 --
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD PRIMARY KEY (`id_presensi`),
+  ADD KEY `nis` (`nis`),
+  ADD KEY `id_matapelajaran` (`id_matapelajaran`);
+
+--
+-- Indexes for table `siswa`
+--
+ALTER TABLE `siswa`
+  ADD PRIMARY KEY (`nis`),
+  ADD KEY `id_kelas` (`id_kelas`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `presensi`
+--
+ALTER TABLE `presensi`
+  MODIFY `id_presensi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=367;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD CONSTRAINT `presensi_ibfk_1` FOREIGN KEY (`nis`) REFERENCES `siswa` (`nis`),
+  ADD CONSTRAINT `presensi_ibfk_2` FOREIGN KEY (`id_matapelajaran`) REFERENCES `matapelajaran` (`id_matapelajaran`);
+
+--
+-- Constraints for table `siswa`
+--
+ALTER TABLE `siswa`
+  ADD CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
