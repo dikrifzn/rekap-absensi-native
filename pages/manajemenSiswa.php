@@ -46,78 +46,68 @@
                         Absensi
                     </div>
                 </a>
-                <a href="#">
+                <a href="rekapKehadiran.php">
                     <div class="navitem p-2">
                         Rekap Kehadiran
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="navitem p-2">
+                        Manajemen Siswa
                     </div>
                 </a>
             </div>
         </div>
     </nav>
     <div class="container p-3">
-    <form action="../action/upload.php" method="post" enctype="multipart/form-data">
-    Pilih file Excel: <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload" name="submit">
-</form>
+        <form action="../action/upload.php" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col">
+                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
+                </div>
+                <div class="col-1">
+                    <input class="btn btn-primary" type="submit" value="Upload" name="submit">
+                </div>
+            </div>
+        </form>
+        <table class="table table-striped m-0 align-items-center">
+            <thead class="text-center">
+                <tr>
+                    <th class="col-1" scope="col">#</th>
+                    <th class="col-2" scope="col">NIS</th>
+                    <th class="col-4" scope="col">Nama</th>
+                    <th class="col-4" scope="col">Kelas</th>
+                    <th class="col-1" scope="col">status</th>
+                </tr>
+            </thead>
+            <tbody id="data-table-body">
+            <?php
+                include "../action/koneksi.php";
 
-      <table class="table table-striped m-0 align-items-center">
-        <thead class="text-center">
-        <tr>
-            <th class="col-1" scope="col">#</th>
-            <th class="col-2" scope="col">NIS</th>
-            <th class="col-4" scope="col">Nama</th>
-            <th class="col-4" scope="col">Kelas</th>
-            <th class="col-1" scope="col">status</th>
-          </tr>
-        </thead>
-        </thead>
-        <tbody id="data-table-body">
-        <?php
-        include "../action/koneksi.php";
-
-        $no = 1;
-        $data = mysqli_query($koneksi, "SELECT siswa.nis, siswa.nama, kelas.nama_kelas 
-                                          FROM siswa
-                                          INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
+                $no = 1;
+                $data = mysqli_query($koneksi, "SELECT siswa.nis, siswa.nama, kelas.nama_kelas FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
                     
-        while ($d = mysqli_fetch_array($data)) {
-            echo "<tr>";
-            echo "<th class='text-center' scope='row'>" . $no++ . "</th>";
-            echo "<td class='text-center'>" . $d["nis"] . "</td>";
-            echo "<td class='text-start'>" . $d["nama"] . "</td>";
-            echo "<td class='text-center'>" . $d["nama_kelas"] . "</td>";
-            echo "<td class='text-center'></td>";
-            echo "</tr>";
-        }
-        ?>
-        </tbody>
-      </table>
+                while ($d = mysqli_fetch_array($data)) {
+                    echo "<tr>";
+                    echo "<th class='text-center' scope='row'>" . $no++ . "</th>";
+                    echo "<td class='text-center'>" . $d["nis"] . "</td>";
+                    echo "<td class='text-start'>" . $d["nama"] . "</td>";
+                    echo "<td class='text-center'>" . $d["nama_kelas"] . "</td>";
+                    echo "<td class='text-center'></td>";
+                    echo "</tr>";
+                }
+            ?>
+            </tbody>
+        </table>
     </div>
     <footer class="text-lg-start mt-3">
         <div class="d-flex justify-content-center align-items-center text-white p-3" style="background-color: rgb(83,165,127);">
-        © 2020 Copyright:
-        <a class="text-white" href="https://www.instagram.com/sisteminformasi_02?igsh=MWF0bmJwczFmZDcybg==" target="_BLANK">SINFC-2022-02</a>
-        Universitas Kuningan
+            © 2020 Copyright:
+            <a class="text-white" href="https://www.instagram.com/sisteminformasi_02?igsh=MWF0bmJwczFmZDcybg==" target="_BLANK">SINFC-2022-02</a>
+            Universitas Kuningan
         </div>
     </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $("#search").on("keyup", function() {
-          var value = $(this).val().toLowerCase();
-          var tabel = "kelas1a"; // Ganti dengan nama tabel yang diinginkan
-          $.ajax({
-              url: "../action/search.php",
-              type: "POST",
-              data: {search:value, tabel:tabel}, // Mengirimkan data tabel yang akan dicari
-              success: function(data) {
-                  $("#data-table-body").html(data);
-              }
-          });
-      });
-    });
-
-  </script>
 </body>
 </html>

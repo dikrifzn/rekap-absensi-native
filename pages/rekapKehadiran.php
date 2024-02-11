@@ -51,6 +51,11 @@
                         Rekap Kehadiran
                     </div>
                 </a>
+                <a href="manajemenSiswa.php">
+                    <div class="navitem p-2">
+                        Manajemen Siswa
+                    </div>
+                </a>
             </div>
         </div>
     </nav>
@@ -175,16 +180,12 @@
             break;
         }
       });
-    });
-
-    $(document).ready(function() {
       $("#search").on("keyup", function() {
           var value = $(this).val().toLowerCase();
-          var tabel = "kelas1a"; // Ganti dengan nama tabel yang diinginkan
           $.ajax({
               url: "../action/search.php",
               type: "POST",
-              data: {search:value, tabel:tabel}, // Mengirimkan data tabel yang akan dicari
+              data: {search:value}, // Mengirimkan data tabel yang akan dicari
               success: function(data) {
                   $("#data-table-body").html(data);
               }

@@ -96,8 +96,12 @@
                                 <div class="col">
                                     <label for="matapelajaran">Pelajaran : </label>
                                     <select id="matapelajaran" class="form-control" name="matapelajaran">
-                                        <option value="1">Fiqih</option>
-                                        <option value="2">Akhlaq</option>
+                                        <option value="1">Do'a</option>
+                                        <option value="2">Hadis</option>
+                                        <option value="3">Juz Ama</option>
+                                        <option value="4">B. Arab</option>
+                                        <option value="5">Persolatan</option>
+                                        <option value="6">Tauhid</option>
                                     </select>
                                 </div>
                             </div>

@@ -4,7 +4,6 @@ include "../action/koneksi.php";
 
 if(isset($_POST['search'])) {
     $keyword = $_POST['search'];
-    $tabel = $_POST['tabel'];
 
     // Query pencarian data berdasarkan kolom 'nama'
     $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas,
@@ -26,7 +25,7 @@ if(isset($_POST['search'])) {
             echo "<th class='text-center' scope='row'>" . $no++ . "</th>";
             echo "<td class='text-center'>" . $d["nis"] . "</td>";
             echo "<td class='text-start'>" . $d["nama"] . "</td>";
-            echo "<td class='text-center'>" . $d["jenis_kelamin"] . "</td>";
+            echo "<td class='text-center'>" . $d["nama_kelas"] . "</td>";
             
             // Menambahkan warna merah jika nilai lebih dari 3
             $sakitColor = ($d['sakit'] > 3) ? 'text-danger fw-bold' : '';

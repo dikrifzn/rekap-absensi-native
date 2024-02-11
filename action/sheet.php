@@ -22,8 +22,7 @@ FROM siswa
 LEFT JOIN presensi ON siswa.nis = presensi.nis
 INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas
 WHERE kelas.id_kelas = '$table'
-GROUP BY siswa.nis;
-");
+GROUP BY siswa.nis;");
 
 foreach ($result as $key => $row) {
     //Judul

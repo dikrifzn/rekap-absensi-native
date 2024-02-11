@@ -1,0 +1,8 @@
+use xampp
+install phpexcel
+composer install --ignore-platform-req=ext-gd
+edit php.ini in your server
+xampp/php/php.ini
+
+find ";extension=zip" and delete ";" then save
+composer update --ignore-platform-req=ext-gd

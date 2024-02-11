@@ -1,8 +1,9 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
+include "koneksi.php";
 
 if(isset($_POST['submit'])){
-    $target_dir = "uploads/";
+    $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -22,28 +23,50 @@ if(isset($_POST['submit'])){
             $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($target_file);
             $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
 
-            // Sambungkan ke database MySQL
-            $servername = "localhost";
-            $username = "username";
-            $password = "password";
-            $dbname = "nama_database";
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
             // Periksa koneksi
-            if ($conn->connect_error) {
-                die("Koneksi gagal: " . $conn->connect_error);
+            if ($koneksi->connect_error) {
+                die("Koneksi gagal: " . $koneksi->connect_error);
             }
 
             // Proses dan simpan data ke tabel MySQL
+            // var_dump($sheetData[7]["B"]);
             foreach ($sheetData as $row) {
-                $sql = "INSERT INTO nama_tabel (kolom1, kolom2, kolom3) VALUES ('" . $row['A'] . "', '" . $row['B'] . "', '" . $row['C'] . "')";
-                $conn->query($sql);
+                var_dump($row["B"] . "<br>");
+                if($row["B"] != NULL && $row["B"] != "Nis"){
+                    $nis = $koneksi->real_escape_string($row['B']);
+                    $nama = $koneksi->real_escape_string($row['C']);
+                    $id_kelas = "";
+                    if($row["D"] == "1A"){
+                        $id_kelas = 1;
+                    }else if($row["D"] == "1B"){
+                        $id_kelas = "2";
+                    }else if($row["D"] == "2A"){
+                        $id_kelas = "3";
+                    }else if($row["D"] == "2B"){
+                        $id_kelas = "4";
+                    }else if($row["D"] == "3A"){
+                        $id_kelas = "5";
+                    }else if($row["D"] == "3B"){
+                        $id_kelas = "6";
+                    }else if($row["D"] == "4"){
+                        $id_kelas = "7";
+                    }
+                    var_dump($id_kelas . $row["C"]);
+                    $sql = "INSERT INTO siswa VALUE('$nis', '$nama', " . $id_kelas . ")";
+                    var_dump($sql);
+                    if (!$koneksi->query($sql)) {
+                        echo "Error: " . $sql . "<br>" . $koneksi->error;
+                    }
+                }
             }
 
             echo "Data berhasil diimpor ke MySQL.";
 
             // Tutup koneksi
-            $conn->close();
+            $koneksi->close();
+
+            // Hapus file yang diunggah setelah proses selesai
+            unlink($target_file);
         } else {
             echo "Maaf, ada masalah saat mengunggah file.";
         }
