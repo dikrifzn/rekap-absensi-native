@@ -275,14 +275,48 @@
     </div>
     <footer class="text-lg-start mt-3">
         <div class="d-flex justify-content-center align-items-center text-white p-3" style="background-color: rgb(83,165,127);">
-        © 2020 Copyright:&nbsp;
+        © 2020 Copyright:
         <a class="text-white" href="https://www.instagram.com/sisteminformasi_02?igsh=MWF0bmJwczFmZDcybg==" target="_BLANK">SINFC-2022-02</a>
-        &nbsp;Universitas Kuningan
+        Universitas Kuningan
         </div>
     </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
+    // $(document).ready(function() {
+      // Event listener for select change
+    //   $('#inputGroupSelect01').change(function() {
+    //     var selectedKelas = $(this).val();
+
+    //     switch(selectedKelas) {
+    //       case 'all':
+    //         window.location.href = 'rekapKehadiran.php';
+    //         break;
+    //       case '1A':
+    //         window.location.href = 'rekap1A.php';
+    //         break;
+    //       case '1B':
+    //         window.location.href = 'rekap1B.php';
+    //         break;
+    //       case '2A':
+    //         window.location.href = 'rekap2A.php';
+    //         break;
+    //       case '2B':
+    //         window.location.href = 'rekap2B.php';
+    //         break;
+    //       case '3A':
+    //         window.location.href = 'rekap3A.php';
+    //         break;
+    //       case '3B':
+    //         window.location.href = 'rekap3B.php';
+    //         break;
+    //       case '4':
+    //         window.location.href = 'rekap4.php';
+    //         break;
+    //     }
+    //   });
+    // });
+
     $(document).ready(function() {
       // Event listener for select change
       $('#inputGroupSelect01 , #inputGroupSelect02, #inputGroupSelect03').change(function() {
@@ -293,6 +327,7 @@
         window.location.href = 'rekapKehadiran.php?kelas=' + selectedKelas + '&mata_pelajaran=' + selectedMataPelajaran + '&bulan=' + selectedBulan;
       });
     });
+
   </script>
 </body>
 </html>

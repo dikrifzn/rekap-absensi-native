@@ -1,21 +1,22 @@
+-- Database Al-Awaliyah
+CREATE DATABASE dbalawaliyah;
+
 -- Tabel Kelas
 CREATE TABLE kelas (
     id_kelas INT PRIMARY KEY,
     nama_kelas VARCHAR(50)
 );
 
--- Tabel Siswa
-CREATE TABLE siswa (
-    nis VARCHAR(15) PRIMARY KEY,
-    nama VARCHAR(255),
-    id_kelas INT,
-    FOREIGN KEY (id_kelas) REFERENCES Kelas(id_kelas)
-);
-
 -- Tabel MataPelajaran
 CREATE TABLE matapelajaran (
     id_matapelajaran INT PRIMARY KEY,
     matapelajaran VARCHAR(100)
+);
+
+-- Tabel Pengguna
+CREATE TABLE pengguna(
+    username VARCHAR(25) PRIMARY KEY,
+    password VARCHAR(25)
 );
 
 -- Tabel Presensi
@@ -27,4 +28,12 @@ CREATE TABLE presensi (
     status_presensi VARCHAR(20),
     FOREIGN KEY (id_siswa) REFERENCES siswa(id_siswa),
     FOREIGN KEY (id_matapelajaran) REFERENCES matapelajaran(id_matapelajaran)
+);
+
+-- Tabel Siswa
+CREATE TABLE siswa (
+    nis VARCHAR(15) PRIMARY KEY,
+    nama VARCHAR(255),
+    id_kelas INT,
+    FOREIGN KEY (id_kelas) REFERENCES Kelas(id_kelas)
 );

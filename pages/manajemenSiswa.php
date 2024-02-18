@@ -65,12 +65,12 @@
                 <div class="col">
                     <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
                 </div>
-                <div class="col-1">
+                <div class="col-1 ps-0 w-auto">
                     <input class="btn btn-primary" type="submit" value="Upload" name="submit">
                 </div>
             </div>
         </form>
-        <table class="table table-striped m-0 align-items-center">
+        <table class="table table-striped m-0 align-items-center mt-3">
             <thead class="text-center">
                 <tr>
                     <th class="col-1" scope="col">#</th>
@@ -85,7 +85,7 @@
                 include "../action/koneksi.php";
 
                 $no = 1;
-                $data = mysqli_query($koneksi, "SELECT siswa.nis, siswa.nama, kelas.nama_kelas FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
+                $data = mysqli_query($koneksi, "SELECT siswa.nis, siswa.nama, kelas.nama_kelas, siswa.status FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
                     
                 while ($d = mysqli_fetch_array($data)) {
                     echo "<tr>";
@@ -93,7 +93,9 @@
                     echo "<td class='text-center'>" . $d["nis"] . "</td>";
                     echo "<td class='text-start'>" . $d["nama"] . "</td>";
                     echo "<td class='text-center'>" . $d["nama_kelas"] . "</td>";
-                    echo "<td class='text-center'></td>";
+                    echo "<td class='text-center'>"
+                        . $d["status"] .
+                    "</td>";
                     echo "</tr>";
                 }
             ?>
@@ -102,9 +104,9 @@
     </div>
     <footer class="text-lg-start mt-3">
         <div class="d-flex justify-content-center align-items-center text-white p-3" style="background-color: rgb(83,165,127);">
-            © 2020 Copyright:
-            <a class="text-white" href="https://www.instagram.com/sisteminformasi_02?igsh=MWF0bmJwczFmZDcybg==" target="_BLANK">SINFC-2022-02</a>
-            Universitas Kuningan
+            © 2020 Copyright:&nbsp;
+            <a class="text-white" href="https://www.instagram.com/sisteminformasi_02/" target="_BLANK">SINFC-2022-02</a>
+            &nbsp;Universitas Kuningan
         </div>
     </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

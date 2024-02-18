@@ -583,9 +583,9 @@
     </div>
     <footer class="text-lg-start mt-3">
         <div class="d-flex justify-content-center align-items-center text-white p-3" style="background-color: rgb(83,165,127);">
-        © 2020 Copyright:
+        © 2020 Copyright:&nbsp;
         <a class="text-white"  href="https://www.instagram.com/sisteminformasi_02?igsh=MWF0bmJwczFmZDcybg==" target="_BLANK">SINFC-2022-02</a>
-        Universitas Kuningan
+        &nbsp;Universitas Kuningan
         </div>
     </footer>
 
