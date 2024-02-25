@@ -6,3 +6,14 @@ xampp/php/php.ini
 
 find ";extension=zip" and delete ";" then save
 composer update --ignore-platform-req=ext-gd
+
+To-Do-List
+
+- memperbaiki popup modal untuk tambah dan ubah Data [done]
+- memperbaiki export ke excel per kelas dan semua 
+- memperbaiki peringatan untuk eror tidak ada file dan gagal upload [done]
+- memfungsikan popup modal tambah dan ubah data [done]
+- menambahkan download template pada manajemenSiswa.php [done]
+- menambah tombol hapus di popup modal Update Data [done]
+- mengfungsikan tombol hapus data di popup modal update siswa [done]
+- menambahkan peringatan eror dan success tambah, ubah dan hapus data di popup modal [done]

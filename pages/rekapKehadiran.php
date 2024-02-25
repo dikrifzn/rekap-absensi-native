@@ -116,9 +116,7 @@
       <div class="input-group mb-3">
         <div class="row">
           <div class="col mb-3">
-            <a href="../action/sheet.php?kelas=1">
-                <button class="btn btn-primary">Download Rekap Kehadiran</button>
-            </a>
+              <button onclick="sheet()" class="btn btn-primary">Download Rekap Kehadiran</button>
           </div>
         </div>
       </div>
@@ -158,7 +156,6 @@
                 LEFT JOIN presensi ON siswa.nis = presensi.nis
                 LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
                 GROUP BY siswa.nis; ";
-                echo "pilihan pertama";
             }else if((isset($_GET['kelas']) && $_GET['kelas'] == 'semua') && $_GET['mata_pelajaran'] == 'semua' && $_GET['bulan'] != 'semua'){ //jika kelas dan mata_pelajaran = semua dan bulan tidak semua
               $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas, 
               COALESCE(SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END), 0) as hadir,
@@ -169,7 +166,6 @@
               ON siswa.nis = presensi.nis AND MONTH(presensi.tanggal) = '". $_GET['bulan'] ."'
               LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
               GROUP BY siswa.nis; ";
-              echo "pilihan 2";
             }else if ((isset($_GET['kelas']) && $_GET['kelas'] == 'semua') && $_GET['mata_pelajaran'] != 'semua' && $_GET['bulan'] == 'semua') { //jika kelas dan bulan = semua dan mata_pelajaran tidak semua
                 $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas, 
                 COALESCE(SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END), 0) as hadir,
@@ -180,7 +176,6 @@
                 ON siswa.nis = presensi.nis AND presensi.id_matapelajaran = '". $_GET['mata_pelajaran'] ."'
                 LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
                 GROUP BY siswa.nis; ";
-                echo "pilihan 3";
             }else if((isset($_GET['kelas']) && $_GET['kelas'] == 'semua') && $_GET['mata_pelajaran'] != 'semua' && $_GET['bulan'] != 'semua'){ //jika kelas berisi semua dan lainnya tidak
                 $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas, 
                 COALESCE(SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END), 0) as hadir,
@@ -193,7 +188,6 @@
                 AND presensi.id_matapelajaran = '". $_GET['mata_pelajaran'] ."'
                 LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
                 GROUP BY siswa.nis; ";
-                echo "pilihan 4";
             }else if((isset($_GET['kelas']) && $_GET['kelas'] != 'semua') && $_GET['mata_pelajaran'] == 'semua' && $_GET['bulan'] == 'semua'){ // jika kelas tidak berisi semua dan yang lainnya semua
                 $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas, 
                 COALESCE(SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END), 0) as hadir,
@@ -204,7 +198,6 @@
                 ON siswa.nis = presensi.nis
                 LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
                 WHERE kelas.id_kelas = '". $_GET['kelas'] ."' GROUP BY siswa.nis; ";
-                echo "pilihan 5";
             }else if((isset($_GET['kelas']) && $_GET['kelas'] != 'semua') && $_GET['mata_pelajaran'] != 'semua' && $_GET['bulan'] == 'semua'){ // jika kelas dan mata_pelajaran tidak berisi semua dan bulan berisi semua
                 $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas, 
                 COALESCE(SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END), 0) as hadir,
@@ -217,7 +210,6 @@
                 LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
                 WHERE kelas.id_kelas = '". $_GET['kelas'] ."'
                 GROUP BY siswa.nis; ";
-                echo "pilihan 6";
             }else if((isset($_GET['kelas']) && $_GET['kelas'] != 'semua') && $_GET['mata_pelajaran'] == 'semua' && $_GET['bulan'] != 'semua'){ // jika kelas dan bulan tidak berisi semua dan mata_pelajaran berisi semua
                 $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas, 
                 COALESCE(SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END), 0) as hadir,
@@ -230,7 +222,6 @@
                 LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
                 WHERE kelas.id_kelas = '". $_GET['kelas'] ."'
                 GROUP BY siswa.nis; ";
-                echo "pilihan 6";
             }else if((isset($_GET['kelas']) && $_GET['kelas'] != 'semua') && $_GET['mata_pelajaran'] != 'semua' && $_GET['bulan'] != 'semua'){ // jika semua GET tidak berisi semua
                 $query = "SELECT siswa.nis, siswa.nama, kelas.nama_kelas, 
                 COALESCE(SUM(CASE WHEN presensi.status_presensi = 'H' THEN 1 ELSE 0 END), 0) as hadir,
@@ -244,7 +235,6 @@
                 LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
                 WHERE kelas.id_kelas = '". $_GET['kelas'] ."'
                 GROUP BY siswa.nis; ";
-                echo "pilihan 7";
             }
 
             $data = mysqli_query($koneksi, $query);
@@ -282,6 +272,11 @@
     </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+        function sheet(){
+      window.location.href = "../action/sheet.php?kelas=<?php echo $_GET['kelas']; ?>&bulan=<?php echo $_GET['bulan']; ?>";
+    }
+  </script>
   <script>
     $(document).ready(function() {
       // Event listener for select change

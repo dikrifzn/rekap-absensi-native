@@ -17,6 +17,96 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <!-- UPDATE DATA -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Siswa</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="../action/updateData.php">
+                    <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingNIS" name="nis" placeholder="NIS" readonly>
+                            <label for="floatingNIS">NIS</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingNama" name="nama" placeholder="Nama">
+                            <label for="floatingNama">Nama</label>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
+                            <select class="form-select" id="inputGroupSelect01" name="kelas">
+                                <option value="1" selected>1A</option>
+                                <option value="2">1B</option>
+                                <option value="3">2A</option>
+                                <option value="4">2B</option>
+                                <option value="5">3A</option>
+                                <option value="6">3B</option>
+                                <option value="7">4</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-group-text" for="inputGroupSelect02">Status</label>
+                            <select class="form-select" id="inputGroupSelect02" name="status">
+                                <option value="aktif" selected>Aktif</option>
+                                <option value="tidak_aktif">Tidak Aktif</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="deleteData()" class="btn btn-danger">Hapus</button>
+                        <button type="sumbit" class="btn btn-primary">Ubah</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Siswa</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="../action/addData.php">
+                    <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingNIS2" name="nis" placeholder="NIS">
+                            <label for="floatingNIS">NIS</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingNama2" name="nama" placeholder="Nama">
+                            <label for="floatingNama">Nama</label>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
+                            <select class="form-select" id="inputGroupSelect012" name="kelas">
+                                <option value="1" selected>1A</option>
+                                <option value="2">1B</option>
+                                <option value="3">2A</option>
+                                <option value="4">2B</option>
+                                <option value="5">3A</option>
+                                <option value="6">3B</option>
+                                <option value="7">4</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-group-text" for="inputGroupSelect02">Status</label>
+                            <select class="form-select" id="inputGroupSelect022" name="status">
+                                <option value="aktif" selected>Aktif</option>
+                                <option value="tidak_aktif">Tidak Aktif</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
     <nav> <!--Navbar-->
         <div class="topnav bg-success bg-opacity-75"> 
             <div class="row w-100">
@@ -59,6 +149,24 @@
             </div>
         </div>
     </nav>
+    <?php
+			if(isset($_GET['success'])){
+		?>
+				<div class="alert alert-primary alert-dismissible fade show text-start" role="alert">
+                    <?php echo $_GET['success']; ?>
+				</div>
+		<?php		
+			}
+		?>
+        <?php
+			if(isset($_GET['error'])){
+		?>
+				<div class="alert alert-warning alert-dismissible fade show text-start" role="alert">
+                    <?php echo $_GET['error']; ?>
+				</div>
+		<?php		
+			}
+		?>
     <div class="container p-3">
         <form action="../action/upload.php" method="post" enctype="multipart/form-data">
             <div class="row">
@@ -70,7 +178,16 @@
                 </div>
             </div>
         </form>
-        <table class="table table-striped m-0 align-items-center mt-3">
+        <div class="d-flex justify-content-between align-items-end mt-3">
+                <div>
+                    <span class="text-danger">*</span> klik nama siswa untuk merubah data. <br>
+                    <span class="text-danger">*</span> Gunakan file template <a href="../uploads/template-upload-data.xlsx">ini</a> untuk mengunggah.
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Tambah Siswa +
+                </button>
+        </div>
+        <table class="table table-striped table-hover m-0 align-items-center mt-3">
             <thead class="text-center">
                 <tr>
                     <th class="col-1" scope="col">#</th>
@@ -93,8 +210,13 @@
                     echo "<td class='text-center'>" . $d["nis"] . "</td>";
                     echo "<td class='text-start'>" . $d["nama"] . "</td>";
                     echo "<td class='text-center'>" . $d["nama_kelas"] . "</td>";
+                    if($d["status"] == "aktif"){
+                        $status = "Aktif";
+                    }else{
+                        $status = "Tidak Aktif";
+                    }
                     echo "<td class='text-center'>"
-                        . $d["status"] .
+                        . $status .
                     "</td>";
                     echo "</tr>";
                 }
@@ -111,5 +233,65 @@
     </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+    const tableRows = document.querySelectorAll('#data-table-body tr');
+
+    tableRows.forEach(row => {
+        row.addEventListener('click', function () {
+            // Mendapatkan NIS dari baris tabel yang diklik
+            const nis = row.querySelector('td:nth-child(2)').innerText;
+
+            // Membuat permintaan AJAX ke server untuk mendapatkan data siswa berdasarkan NIS
+            fetch('../action/getDataAjax.php?nis=' + nis)
+                .then(response => response.json())
+                .then(data => {
+                    // Mengisi isian modal dengan data siswa yang diterima
+                    document.getElementById('floatingNIS').value = data[0].nis;
+                    document.getElementById('floatingNama').value = data[0].nama;
+                    
+                    // Mengisi dropdown kelas dengan opsi yang diterima dari server
+                    const kelasDropdown = document.getElementById('inputGroupSelect01');
+                    kelasDropdown.value = data[0].id_kelas;
+                    
+                    // Mengisi dropdown status dengan opsi yang diterima dari server
+                    const statusDropdown = document.getElementById('inputGroupSelect02');
+                    statusDropdown.value = data[0].status;
+                })
+                .catch(error => console.error('Error:', error));
+            
+            // Membuka modal
+            const myModal = new bootstrap.Modal(document.getElementById('staticBackdrop2'));
+            myModal.show();
+        });
+    });
+    const myModal = document.getElementById('myModal');
+    const myInput = document.getElementById('myInput');
+
+    myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+    })
+
+});
+    
+const closeButton2 = document.querySelector('#staticBackdrop .modal-content .btn-close');
+if (closeButton2) {
+        closeButton2.addEventListener('click', function () {
+            // Menghapus nilai dari isian NIS ketika tombol close diklik
+            document.getElementById('floatingNIS2').value = '';
+            document.getElementById('floatingNama2').value = '';
+            document.getElementById('inputGroupSelect012').selectedIndex = 0;
+            document.getElementById('inputGroupSelect022').selectedIndex = 0;
+
+        });
+    }
+
+    function deleteData(){
+        deleteNis = document.getElementById('floatingNIS').value;
+        window.location.href = "../action/deleteData.php?nis=" + deleteNis;
+    }
+</script>
+
 </body>
 </html>

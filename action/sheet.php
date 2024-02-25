@@ -2,7 +2,8 @@
 require "koneksi.php";
 require '../vendor/autoload.php';
 
-$table = $_GET['kelas'];
+$kelas = $_GET['kelas'];
+$bulan = $_GET['bulan'];
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -18,11 +19,11 @@ $result = mysqli_query($koneksi, "SELECT
     SUM(CASE WHEN presensi.status_presensi = 'S' THEN 1 ELSE 0 END) as sakit,
     SUM(CASE WHEN presensi.status_presensi = 'I' THEN 1 ELSE 0 END) as izin,
     SUM(CASE WHEN presensi.status_presensi = 'A' THEN 1 ELSE 0 END) as alpha
-FROM siswa
-LEFT JOIN presensi ON siswa.nis = presensi.nis
-INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas
-WHERE kelas.id_kelas = '$table'
-GROUP BY siswa.nis;");
+    FROM siswa
+    LEFT JOIN presensi ON siswa.nis = presensi.nis
+    INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas
+    WHERE kelas.id_kelas = '$kelas'
+    GROUP BY siswa.nis;");
 
 foreach ($result as $key => $row) {
     //Judul
@@ -54,7 +55,7 @@ foreach ($result as $key => $row) {
     $activeWorksheet->mergeCells('C5:C6');
     $activeWorksheet->setCellValue('C'.$key+7, $row["nama"]);
 
-    $activeWorksheet->setCellValue('D5', 'Bulan : ');
+    $activeWorksheet->setCellValue('D5', 'Bulan : ' . $bulan);
     $activeWorksheet->mergeCells('D5:AH5');
 
     for ($i = 1; $i <= 31; $i++) {
@@ -103,7 +104,7 @@ foreach ($result as $key => $row) {
 
 // Set headers to force file download
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="rekap-absensi-'. $row['nama_kelas'] .'.xlsx"');
+header('Content-Disposition: attachment;filename="rekap-absensi-'. $row['nama_kelas'] .'-'. $bulan .'.xlsx"');
 header('Cache-Control: max-age=0');
 
 // Save spreadsheet to output

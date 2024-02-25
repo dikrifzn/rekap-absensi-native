@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
 
     // Periksa apakah file adalah file Excel
     if($fileType != "xls" && $fileType != "xlsx") {
-        echo "Maaf, hanya file Excel yang diizinkan.";
+        header("Location: ../pages/manajemenSiswa.php?error=Maaf, hanya file Excel yang diizinkan");
         $uploadOk = 0;
     }
 
@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
                         $id_kelas = "7";
                     }
                     var_dump($id_kelas . $row["C"]);
-                    $sql = "INSERT INTO siswa VALUE('$nis', '$nama', " . $id_kelas . ")";
+                    $sql = "INSERT INTO siswa VALUE('$nis', '$nama', " . $id_kelas . ", 'aktif')";
                     var_dump($sql);
                     if (!$koneksi->query($sql)) {
                         echo "Error: " . $sql . "<br>" . $koneksi->error;
@@ -60,7 +60,7 @@ if(isset($_POST['submit'])){
                 }
             }
 
-            echo "Data berhasil diimpor ke MySQL.";
+            header("Location: ../pages/manajemenSiswa.php?success=Data Berhasil Ditambahkan");
 
             // Tutup koneksi
             $koneksi->close();
@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
             // Hapus file yang diunggah setelah proses selesai
             unlink($target_file);
         } else {
-            echo "Maaf, ada masalah saat mengunggah file.";
+            header("Location: ../pages/manajemenSiswa.php?error=Terdapat Kesalahan");
         }
     }
 }
